@@ -1,4 +1,5 @@
 
+
 $(document).ready(function(){
 	"use strict";
 
@@ -262,6 +263,39 @@ $(document).ready(function(){
 
 
 
+//Printscreen prevention
+document.addEventListener("keyup", function (e) {
+  var keyCode = e.keyCode ? e.keyCode : e.which;
+  if (keyCode == 44) { // KeyCode for PrintScreen
+      stopPrntScr();
+      alert("Taking a screenshot is prohibited!"); // Display alert
+  }
+});
+
+function stopPrntScr() {
+  var inpFld = document.createElement("input");
+  inpFld.setAttribute("value", ".");
+  inpFld.style.height = "0px";
+  inpFld.style.width = "0px";
+  inpFld.style.border = "0px";
+  document.body.appendChild(inpFld);
+  inpFld.select();
+  document.execCommand("copy"); // Clear the clipboard
+  inpFld.remove(inpFld);
+}
+
+function AccessClipboardData() {
+  try {
+      window.clipboardData.setData('text', "Access Restricted");
+  } catch (err) {
+      console.error("Clipboard access error:", err);
+  }
+}
+
+// Periodically clear clipboard content
+setInterval(function () {
+  AccessClipboardData();
+}, 300);
 
 
 
