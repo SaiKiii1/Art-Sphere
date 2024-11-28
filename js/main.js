@@ -268,7 +268,7 @@ document.addEventListener("keyup", function (e) {
   var keyCode = e.keyCode ? e.keyCode : e.which;
   if (keyCode == 44) { // KeyCode for PrintScreen
       stopPrntScr();
-      alert("Taking a screenshot is prohibited!"); // Display alert
+      alert("Ako si John Gabriel J. De Leon ang tagapagtanggol ng website na ito. Walang sinuman ang pinapayagang kumuha ng printscreen/screenshot ng website na ito nang walang pahintulot ko.!"); // Display alert
   }
 });
 
